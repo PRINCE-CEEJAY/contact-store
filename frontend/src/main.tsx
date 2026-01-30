@@ -8,12 +8,12 @@ import Footer from './components/Footer.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-  <StrictMode>
-    <div className='flex flex-col min-h-screen min-w-screen items-center relative'>
-      <Navbar/>
-      <App />
-      <Footer/>
+    <div className='flex flex-col min-h-screen min-w-screen items-center relative overflow-hidden'>
+    <StrictMode>
+        <Navbar/>
+        <App />
+        <Footer/>
+      </StrictMode>,
     </div>
-  </StrictMode>,
-    </BrowserRouter>
+  </BrowserRouter>
 )

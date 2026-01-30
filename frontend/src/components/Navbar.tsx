@@ -9,49 +9,52 @@ export default function Navbar() {
     setDark(prev=> !prev)
   }
 
+  const nav = [
+    {
+    address: '/',
+    icon: <HomeIcon/>,
+    text: 'Home'
+  },
+    {
+    address: '/auth/login',
+    icon: <LogInIcon/>,
+    text: 'Login'
+  },
+    {
+    address: '/auth/register',
+    icon: <NotebookPenIcon/>,
+    text: 'Register'
+  },
+    {
+    address: '/dashboard',
+    icon: <LayoutDashboardIcon/>,
+    text: 'Dashboard'
+  },
+    {
+    address: '/add_contact',
+    icon: <Plus/>,
+    text: 'Add Contact'
+  },
+    {
+    address: '/show_contacts',
+    icon: <Contact/>,
+    text: 'View Contacts'
+  },
+]
+
   return (
     <div className="flex bg-black w-full text-white font-extrabold justify-evenly p-2"> 
-      <div className="flex gap-1">
-      <HomeIcon/>
-      <Link to="/" className="cursor-pointer hover:opacity-80" >Home</Link>
-      </div>
+        {nav.map(({address, icon, text})=>( 
+        <div className="flex gap-1">  
+          {icon}
+          <Link to= {address}>{text}</Link>
+        </div>
+        ))}
       <SeparatorVertical/>  
-
-      <div className="flex gap-6">
-        <div className="flex gap-1">
-          <LogInIcon/>
-          <Link to="/auth/login" className="cursor-pointer hover:opacity-80" >Login</Link>
-        </div>
-
-        <div className="flex gap-1">
-          <NotebookPenIcon/>
-          <Link to="/auth/register" className="cursor-pointer hover:opacity-80" >Register</Link>  
-        </div>
-      </div>      
-      <SeparatorVertical/>
-
-      <div className="flex gap-6">
-        <div className="flex gap-1">
-          <LayoutDashboardIcon/>
-          <Link to="/dashboard" className="cursor-pointer hover:opacity-80" >Dashboard</Link> 
-        </div>
-
-        <div className="flex gap-1">
-          <Plus/>
-          <Link to="/add_contact" className="cursor-pointer hover:opacity-80" >Add Contact</Link>   
-        </div>
-
-        <div className="flex gap-1">
-          <Contact/>
-          <Link to="/show_contacts" className="cursor-pointer hover:opacity-80" >View Contacts</Link>   
-        </div>
-      </div>
-      <SeparatorVertical/>     
 
       <div className="flex space-x-3 cursor-pointer hover:opacity-80" onClick={changeMode}>
         {dark ? <Sun/>: <Moon/>}        
       </div>
     </div>
-
   )
 }
